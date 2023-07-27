@@ -1,0 +1,201 @@
+html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    padding: 1em;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* bright / dark mode */
+.pintura-editor {
+    --color-background: 255, 255, 255;
+    --color-foreground: 10, 10, 10;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color: #fff;
+        background: #111;
+    }
+
+    .pintura-editor {
+        --color-background: 10, 10, 10;
+        --color-foreground: 255, 255, 255;
+    }
+}
+
+/* default editor */
+.my-editor {
+    height: 600px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* fullscreen mode */
+html[data-fullscreen] .my-editor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2147483647;
+    margin: 0;
+}
+
+/* export menu */
+.export-form {
+    padding: 0.75em;
+    width: 14em;
+}
+
+.export-form label,
+.export-form legend {
+    display: block;
+    font-size: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+.export-form > * + * {
+    margin-top: 0.75em;
+}
+
+.export-form input[type='number'] {
+    -moz-appearance: textfield;
+    width: 2em;
+    line-height: 1.75;
+    font-size: 0.75em;
+    padding: 0;
+    border-radius: 0.3125em;
+}
+
+.export-form input::-webkit-outer-spin-button,
+.export-form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.export-form input[type='radio'] {
+    display: none;
+}
+
+.export-form input + label {
+    display: inline-block;
+    border: 1px solid rgb(var(--color-foreground));
+    padding: 0.25em 0.5em;
+    margin-right: 0.75em;
+    font-size: 0.75em;
+    border-radius: 0.3125em;
+    cursor: pointer;
+}
+
+.export-form input:checked + label {
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+}
+
+.export-form .number-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.export-form .number-slider input[type='range'] {
+    flex: 1;
+}
+
+.export-form .number-slider input[type='number'] {
+    margin-left: 1em;
+    text-align: right;
+    padding-right: 1.5em;
+    padding-left: 0.25em;
+}
+
+.export-form .number-slider span {
+    position: absolute;
+    font-size: 0.75em;
+    right: 0;
+    margin-right: 0.3125em;
+}
+
+.export-form fieldset[disabled] {
+    filter: grayscale(100%);
+    opacity: 0.25;
+}
+
+.export-form button {
+    cursor: pointer;
+    font-size: 0.75em;
+    padding: 0 1em;
+    line-height: 2.25;
+    border-radius: 0.3125em;
+    color: #000;
+    background: #fdba07;
+}
+
+.export-form button[disabled] {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.export-form button svg {
+    margin-left: -0.125em;
+    margin-right: 0.5em;
+    width: 1em;
+    height: 1em;
+}
+
+.export-form button svg:only-child {
+    margin: 0;
+}
+
+.export-form button > span {
+    display: flex;
+    align-items: center;
+}
+
+.export-form .outputActions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* range styles */
+.export-form input[type='range'] {
+    -webkit-appearance: none;
+}
+
+.export-form input[type='range']::-moz-range-thumb {
+    border: none;
+    border-radius: 0.75em;
+    margin-top: -0.375em;
+    width: 0.75em;
+    height: 0.75em;
+    background: rgb(var(--color-foreground));
+    cursor: pointer;
+}
+
+.export-form input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-radius: 0.75em;
+    margin-top: -0.375em;
+    width: 0.75em;
+    height: 0.75em;
+    background: rgb(var(--color-foreground));
+    cursor: pointer;
+}
+
+.export-form input[type='range']::-webkit-slider-runnable-track {
+    background: rgb(var(--color-foreground));
+    height: 1px;
+}
+
+.export-form input[type='range']::-moz-range-track {
+    background: rgb(var(--color-foreground));
+    height: 1px;
+}
